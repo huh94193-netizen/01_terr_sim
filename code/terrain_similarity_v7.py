@@ -87,8 +87,8 @@ SRTM_PATH = "/home/huxun/00_icing_map/data/dem/SRTM_30m_China/*.tif"
 TARGET_EXTENT = (108.6147, 109.5914, 25.4937, 26.36719)
 SRTM_BUFFER_DEG = 0.1
 WRF_RES = 200
-WINDOW_SIZE_M = 20000
-STEP_SIZE_M = 5000
+WINDOW_SIZE_M = 40000 #20000
+STEP_SIZE_M = 10000 #5000
 TARGET_CRS = "EPSG:32648"
 RESULT_ROOT = "/home/huxun/01_terr_sim/result"
 os.makedirs(RESULT_ROOT, exist_ok=True)
@@ -353,7 +353,7 @@ def is_overlap(idx1, idx2, valid_df, window_size):
 
     overlap_area = (overlap_y_end - overlap_y_start) * (overlap_x_end - overlap_x_start)
     window_area = window_size * window_size
-    return overlap_area / window_area > 0.5
+    return overlap_area / window_area > 0.25 #0.5
 
 
 # ----------------------
